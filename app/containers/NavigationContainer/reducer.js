@@ -2,15 +2,7 @@
  *
  * NavigationContainer reducer
  *
- */
-
-import { fromJS } from 'immutable';
-import {
-  DEFAULT_ACTION,
-} from './constants';
-
-const initialState = fromJS({
-  topics:[
+ * topics:[
     {
       name:'libraries',
       dewscription:'links to libs',
@@ -24,10 +16,23 @@ const initialState = fromJS({
       dewscription:'links to news',
     },
   ],
+ */
+
+import { fromJS } from 'immutable';
+import {
+  REQUEST_TOPICS_SUCCEEDED,
+  DEFAULT_ACTION,
+} from './constants';
+
+const initialState = fromJS({
+  topics:[],
+  
 });
 
 function navigationContainerReducer(state = initialState, action) {
   switch (action.type) {
+    case REQUEST_TOPICS_SUCCEEDED:
+      return state.set('topics', action.topics);
     case DEFAULT_ACTION:
       return state;
     default:
