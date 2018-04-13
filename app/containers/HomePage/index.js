@@ -11,13 +11,17 @@
 
 import React from 'react';
 import NavigationContaier from '../../containers/NavigationContainer';
+import LinkListContainer from '../../containers/LinkListContainer';
 
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     return (
+      <div>
         <NavigationContaier />
+        <LinkListContainer />
+      </div>
     );
   }
 }
