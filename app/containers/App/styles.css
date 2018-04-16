@@ -3,7 +3,18 @@
  *
  * App container styles
  */
-
+/* @import url(https://use.fontawesome.com/releases/v5.0.10/css/regular.css);
+@import url('https://fonts.googleapis.com/css?family=Roboto'); */
 .container {
   display: block;
+  margin: 10px;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: darkcyan;
+}
+
+*{
+  box-sizing: border-box;
 }

@@ -1,7 +1,8 @@
 // import { take, call, put, select } from 'redux-saga/effects';
-import {call} from 'redux-saga/effects';//do comething with side effects
+import {call, put} from 'redux-saga/effects';//do comething with side effects, put dispatch actions
 import {takeLatest} from 'redux-saga'; // subscribe to the server
 import {SELECT_TOPIC} from '../NavigationContainer/constants';
+import { requestLinksSucceded, requestLinksFailed} from './actions';
 
 
 function fetchLinksFromServer(topic){
@@ -12,9 +13,10 @@ function fetchLinksFromServer(topic){
 function* fetchLinks(action){
   try{
     const links = yield call(fetchLinksFromServer, action.topic);
-    console.log('LINKS FROM SERVER: ', links);
+    yield put(requestLinksSucceded(links));
+    // console.log('LINKS FROM SERVER: ', links);
   }catch(error){
-
+    yield put(requestLinksFailed(error.message));
   }
 }
 // Individual exports for testing
